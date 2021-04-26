@@ -3,7 +3,7 @@ package program.status;
 public class GameStatus 
 {
 	public static boolean gameStarted;
-	public static int[][] field = new int[20][5];
+	public static int[][] field = new int[20][10];
 	
 	
 	public static void generateField()
