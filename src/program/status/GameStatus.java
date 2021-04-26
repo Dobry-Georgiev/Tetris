@@ -1,4 +1,4 @@
-package ProgramStatus;
+package program.status;
 
 public class GameStatus 
 {

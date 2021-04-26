@@ -1,4 +1,4 @@
-package Controller;
+package controller;
 
 import java.awt.Font;
 import java.awt.event.ActionEvent;
@@ -7,7 +7,7 @@ import java.util.Date;
 
 import javax.swing.JLabel;
 
-import Builders.FrameBuilder;
+import builders.FrameBuilder;
 
 public class GameController
 {
@@ -20,14 +20,13 @@ public class GameController
 	private static void startDropping()
 	{
 		JLabel object = new JLabel("█");
-
 		object.setFont(new Font("Serif", Font.PLAIN, 40));
 		object.setBounds(20, 5, 100, 100);
 		FrameBuilder.mainFrame.getContentPane().add(object);
 
 		ActionListener taskPerformer = new ActionListener() {
 	        public void actionPerformed(ActionEvent evt) {
-	                System.out.println("Hello!");
+	                System.out.println("Cube Down!!");
 	                y+=35;
 	    			object.setBounds(20, y, 100, 100);
 	                object.repaint();

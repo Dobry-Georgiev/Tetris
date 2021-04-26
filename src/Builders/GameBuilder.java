@@ -1,10 +1,10 @@
-package Builders;
+package builders;
 
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 
-import Controller.GameController;
+import controller.GameController;
 
 public class GameBuilder 
 {

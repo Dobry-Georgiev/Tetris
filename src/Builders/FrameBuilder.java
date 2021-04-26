@@ -1,4 +1,4 @@
-package Builders;
+package builders;
 
 import javax.swing.JFrame;
 import javax.swing.JLabel;

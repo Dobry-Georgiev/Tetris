@@ -1,7 +1,8 @@
 package engines;
 
-import Builders.FrameBuilder;
-import Builders.MainMenu;
+import builders.FrameBuilder;
+import builders.ProgramStarter;
+import menus.MainMenu;
 
 public class Engine 
 {
@@ -9,6 +10,6 @@ public class Engine
 	public Engine()
 	{
 		FrameBuilder.buildFrame();
-		mainMenu = new MainMenu();
+		ProgramStarter.StartProgram();
 	}
 }
