@@ -1,4 +1,4 @@
-package tetris.builder;
+package Builders;
 
 import javax.swing.JFrame;
 import javax.swing.JLabel;

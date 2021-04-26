@@ -1,4 +1,4 @@
-package tetris.builder;
+package Controller;
 
 import java.awt.Font;
 import java.awt.event.ActionEvent;
@@ -6,6 +6,8 @@ import java.awt.event.ActionListener;
 import java.util.Date;
 
 import javax.swing.JLabel;
+
+import Builders.FrameBuilder;
 
 public class GameController
 {

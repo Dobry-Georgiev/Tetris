@@ -1,4 +1,4 @@
-package tetris.builder;
+package ProgramStatus;
 
 public class GameStatus 
 {
