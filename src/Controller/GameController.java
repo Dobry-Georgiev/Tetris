@@ -1,5 +1,6 @@
 package controller;
 
+import java.awt.Color;
 import java.awt.Font;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -39,50 +40,16 @@ public class GameController
 	}
 	private static void createRandomObject()
 	{
-		int randX = (int)Math.floor(Math.random()*(9+1)+0);
-		switch(randX)
-		{
-		case 0:
-			currentObjectX = 0;
-			currentObjectColumn = 0;
-		case 1:
-			currentObjectX = 30;
-			currentObjectColumn = 1;
-		case 2:
-			currentObjectX = 60;
-			currentObjectColumn = 2;
-		case 3:
-			currentObjectX = 90;
-			currentObjectColumn = 3;
-		case 4:
-			currentObjectX =120;
-			currentObjectColumn = 4;
-		case 5:
-			currentObjectX = 150;
-			currentObjectColumn = 5;
-		case 6:
-			currentObjectX = 180;
-			currentObjectColumn = 6;
-		case 7:
-			currentObjectX = 210;
-			currentObjectColumn = 7;
-		case 8:
-			currentObjectX = 240;
-			currentObjectColumn = 8;
-		case 9:
-			currentObjectX = 270;
-			currentObjectColumn= 9;
-			
-		
-		
-		}
+		objectSetRandomX();
 		currentObjectRow = 0;
 		currentObjectY = objectStartY;
 		currentObject = new JLabel("█");
 		currentObject.setFont(new Font("Serif", Font.PLAIN, 40));
-		currentObject.setBounds(currentObjectX, objectStartY, 100, 100);
+		currentObject.setBounds(currentObjectX, objectStartY, 70, 70);
 		FrameBuilder.mainFrame.getContentPane().add(currentObject);
 		objects.add(currentObject);
+		objectSetRandomColor();
+		
 	}
 	
 	private static void objectStartFalling()
@@ -201,5 +168,84 @@ public class GameController
 
 		
 	 }
+	 private static void objectSetRandomX()
+	 {
+		 int randX = (int)Math.floor(Math.random()*(9+1)+0);
+			switch(randX)
+			{
+			case 0:
+				currentObjectX = 0;
+				currentObjectColumn = 0;
+				break;
+			case 1:
+				currentObjectX = 30;
+				currentObjectColumn = 1;
+				break;
+			case 2:
+				currentObjectX = 60;
+				currentObjectColumn = 2;
+				break;
+			case 3:
+				currentObjectX = 90;
+				currentObjectColumn = 3;
+				break;
+			case 4:
+				currentObjectX =120;
+				currentObjectColumn = 4;
+				break;
+			case 5:
+				currentObjectX = 150;
+				currentObjectColumn = 5;
+				break;
+			case 6:
+				currentObjectX = 180;
+				currentObjectColumn = 6;
+				break;
+			case 7:
+				currentObjectX = 210;
+				currentObjectColumn = 7;
+				break;
+			case 8:
+				currentObjectX = 240;
+				currentObjectColumn = 8;
+				break;
+			case 9:
+				currentObjectX = 270;
+				currentObjectColumn= 9;
+				break;
+			
+			}
+	 }
+	 private static void objectSetRandomColor() 
+	 {
+		 int randColor = (int)Math.floor(Math.random()*(7+1)+0);
+			switch(randColor)
+			{
+			case 0:
+				currentObject.setForeground(Color.GREEN);
+				break;
+			case 1:
+				currentObject.setForeground(Color.RED);
+				break;
+			case 2:
+				currentObject.setForeground(Color.YELLOW);
+				break;
+			case 3:
+				currentObject.setForeground(Color.BLUE);
+				break;
+			case 4:
+				currentObject.setForeground(Color.ORANGE);
+				break;
+			case 5:
+				currentObject.setForeground(Color.pink);
+				break;
+			case 6:
+				currentObject.setForeground(Color.BLACK);
+				break;
+			case 7:
+				currentObject.setForeground(Color.LIGHT_GRAY);
+				break;
 
+			}
+	 }
 	}
