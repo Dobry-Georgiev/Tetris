@@ -1,6 +1,5 @@
 package controller;
 
-import java.awt.Color;
 import java.awt.Font;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -8,6 +7,7 @@ import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
 import java.util.Date;
 import java.util.LinkedList;
+import java.util.Random;
 
 import javax.swing.JLabel;
 
@@ -18,13 +18,15 @@ public class GameController
 {
 	private static JLabel currentObject = new JLabel();
 	private static LinkedList<JLabel> objects = new LinkedList<>();
+	private final static int objectStartY = -30;
 	private static int currentObjectRow = 0;
 	private static int currentObjectColumn = 0;
 	private static int currentObjectX = 0;
-	private static int currentObjectY = 0;
+	private static int currentObjectY = -30;
 	static boolean closeT = false;
 	static boolean hasMovedLeft = false;
 	static boolean hasMovedRight = false;
+	
 	public static void gameStart()
 	{
 		startDropping();
@@ -37,9 +39,48 @@ public class GameController
 	}
 	private static void createRandomObject()
 	{
+		int randX = (int)Math.floor(Math.random()*(9+1)+0);
+		switch(randX)
+		{
+		case 0:
+			currentObjectX = 0;
+			currentObjectColumn = 0;
+		case 1:
+			currentObjectX = 30;
+			currentObjectColumn = 1;
+		case 2:
+			currentObjectX = 60;
+			currentObjectColumn = 2;
+		case 3:
+			currentObjectX = 90;
+			currentObjectColumn = 3;
+		case 4:
+			currentObjectX =120;
+			currentObjectColumn = 4;
+		case 5:
+			currentObjectX = 150;
+			currentObjectColumn = 5;
+		case 6:
+			currentObjectX = 180;
+			currentObjectColumn = 6;
+		case 7:
+			currentObjectX = 210;
+			currentObjectColumn = 7;
+		case 8:
+			currentObjectX = 240;
+			currentObjectColumn = 8;
+		case 9:
+			currentObjectX = 270;
+			currentObjectColumn= 9;
+			
+		
+		
+		}
+		currentObjectRow = 0;
+		currentObjectY = objectStartY;
 		currentObject = new JLabel("█");
 		currentObject.setFont(new Font("Serif", Font.PLAIN, 40));
-		currentObject.setBounds(20, -200, 40, 40);
+		currentObject.setBounds(currentObjectX, objectStartY, 100, 100);
 		FrameBuilder.mainFrame.getContentPane().add(currentObject);
 		objects.add(currentObject);
 	}
@@ -57,22 +98,16 @@ public class GameController
 	        	if(currentObjectRow >= 19 || currentObjectHasCollided())
 	        	{
 	        		createRandomObject();
-	        		currentObjectRow = 0;
-	        		currentObjectColumn = 8;
-	        		currentObjectX = 240;
-	        		currentObjectY = 0;
 	        		printFieldOnConsole();
 	        	}
 	        }
 	    };
-	    javax.swing.Timer t = new javax.swing.Timer(1* 200, objectsDropper);
+	    javax.swing.Timer t = new javax.swing.Timer(1* 400, objectsDropper);
 	    t.start();
 		 
 	}
 	private static void dropObjectOneRowDown()
 	{
-		
-		
 		currentObjectY += 39;
 		currentObject.setBounds(currentObjectX, currentObjectY, 100, 100);
 		currentObject.repaint();
@@ -122,7 +157,8 @@ public class GameController
 			currentObjectX -= 30;
 			currentObjectColumn --;
 			System.out.println("left");
-		}else
+		}
+		else
 		if(hasMovedRight&& currentObjectColumn+1 <= 9)
 		{
 			if(currentObjectColumn-1 >= 0)
@@ -133,13 +169,12 @@ public class GameController
 			currentObjectX += 30;
 			currentObjectColumn ++;
 			System.out.println("right");
-		}else 
+		}
+		else 
 		{
 			GameStatus.field[currentObjectRow][currentObjectColumn] = 1;
 			
 		}
-		
-		
 	}
 	
 	 private static void keyPressEvent() 
