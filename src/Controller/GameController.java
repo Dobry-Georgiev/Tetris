@@ -13,6 +13,8 @@ import java.util.Random;
 import javax.swing.JLabel;
 
 import builders.FrameBuilder;
+import models.ObjectTypes;
+import models.objectModels;
 import program.status.GameStatus;
 
 public class GameController
@@ -24,9 +26,9 @@ public class GameController
 	private static int currentObjectColumn = 0;
 	private static int currentObjectX = 0;
 	private static int currentObjectY = -30;
-	static boolean closeT = false;
 	static boolean hasMovedLeft = false;
 	static boolean hasMovedRight = false;
+	private static ObjectTypes objectType;
 	
 	public static void gameStart()
 	{
@@ -43,13 +45,16 @@ public class GameController
 		objectSetRandomX();
 		currentObjectRow = 0;
 		currentObjectY = objectStartY;
-		currentObject = new JLabel("█");
+		currentObject = new JLabel(objectModels.Cube);
 		currentObject.setFont(new Font("Serif", Font.PLAIN, 40));
-		currentObject.setBounds(currentObjectX, objectStartY, 70, 70);
+		currentObject.setBorder(null);
+		currentObject.setBounds(currentObjectX, objectStartY, 500, 100);
+		currentObject.setSize(10,200);
 		FrameBuilder.mainFrame.getContentPane().add(currentObject);
 		objects.add(currentObject);
 		objectSetRandomColor();
-		
+		hasMovedLeft = false;
+		hasMovedRight = false;
 	}
 	
 	private static void objectStartFalling()
@@ -57,7 +62,6 @@ public class GameController
 		ActionListener objectsDropper = new ActionListener() {
 			
 	        public void actionPerformed(ActionEvent evt) {
-	        	
 	        	
 	        	dropObjectOneRowDown();
 	        	keyPressEvent();
@@ -76,7 +80,7 @@ public class GameController
 	private static void dropObjectOneRowDown()
 	{
 		currentObjectY += 39;
-		currentObject.setBounds(currentObjectX, currentObjectY, 100, 100);
+		currentObject.setBounds(currentObjectX, currentObjectY, 500, 100);
 		currentObject.repaint();
         FrameBuilder.mainFrame.repaint();
         FrameBuilder.mainFrame.getContentPane().repaint();
