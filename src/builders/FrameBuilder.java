@@ -12,7 +12,6 @@ public class FrameBuilder
 		mainFrame.setVisible(true);
 		mainFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		mainFrame.setBounds(600, 0, 300, 1000);
-	
 	}
 
 }

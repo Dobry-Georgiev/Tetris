@@ -6,9 +6,7 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
-import java.util.Date;
 import java.util.LinkedList;
-import java.util.Random;
 
 import javax.swing.JLabel;
 
@@ -73,7 +71,7 @@ public class GameController
 	        	}
 	        }
 	    };
-	    javax.swing.Timer t = new javax.swing.Timer(1* 600, objectsDropper);
+	    javax.swing.Timer t = new javax.swing.Timer(1* 200, objectsDropper);
 	    t.start();
 		 
 	}

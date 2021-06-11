@@ -21,10 +21,6 @@ public class MainMenu
 		frameNameBuilder();
 		panelBuilder();	
 		startButtonBuilder();
-		
-		
-		startButtonBuilder();
-		
 	}
 	private void frameNameBuilder()
 	{
