@@ -15,12 +15,16 @@ public class MainMenu
 	JLabel gameNameLbl;
 	JPanel mainMenuPanel;
 	JButton startButton;
+	JButton settingsMenuButton;
+	JButton exitButton;
 	
 	public MainMenu()
 	{
 		frameNameBuilder();
 		panelBuilder();	
 		startButtonBuilder();
+		settingsMenuButtonBuilder();
+		exitButtonBuilder();
 	}
 	private void frameNameBuilder()
 	{
@@ -44,6 +48,21 @@ public class MainMenu
 		mainMenuPanel.add(startButton);
 		startButtonPressedCheck();
 	}
+	private void settingsMenuButtonBuilder()
+	{
+		settingsMenuButton = new JButton("Settings");
+		settingsMenuButton.setBounds(105, 260, 90, 20);
+		settingsMenuButton.setVisible(true);
+		mainMenuPanel.add(settingsMenuButton);
+	}
+	private void exitButtonBuilder()
+	{
+		exitButton = new JButton("Exit");
+		exitButton.setBounds(110, 320, 80, 20);
+		exitButton.setVisible(true);
+		mainMenuPanel.add(exitButton);
+		exitButtonPressedCheck();
+	}
 	public void startButtonPressedCheck()
 	{
 		startButton.addActionListener(new ActionListener() {
@@ -53,6 +72,14 @@ public class MainMenu
 				
 			}
 		});
+		
+	}
+	public void exitButtonPressedCheck()
+	{
+		exitButton.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+				System.exit(0);
+			}});
 		
 	}
 
