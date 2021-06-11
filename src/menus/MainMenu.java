@@ -67,10 +67,8 @@ public class MainMenu
 	public void startButtonPressedCheck()
 	{
 		startButton.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-				
+			public void actionPerformed(ActionEvent e) {	
 				GameBuilder.buildField();
-				
 			}
 		});
 		
