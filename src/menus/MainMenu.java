@@ -54,6 +54,7 @@ public class MainMenu
 		settingsMenuButton.setBounds(105, 260, 90, 20);
 		settingsMenuButton.setVisible(true);
 		mainMenuPanel.add(settingsMenuButton);
+		settingsMenuButtonPressedCheck();
 	}
 	private void exitButtonBuilder()
 	{
@@ -80,6 +81,17 @@ public class MainMenu
 			public void actionPerformed(ActionEvent arg0) {
 				System.exit(0);
 			}});
+		
+	}
+	public void settingsMenuButtonPressedCheck()
+	{
+		settingsMenuButton.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				
+				SettingsMenu settignsMenu = new SettingsMenu();
+				
+			}
+		});
 		
 	}
 
