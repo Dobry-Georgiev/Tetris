@@ -29,7 +29,6 @@ public class GameController
 	static boolean hasMovedLeft = false;
 	static boolean hasMovedRight = false;
 	private static ObjectTypes objectType;
-	private static javax.swing.Timer t;
 	
 	public static void gameStart()
 	{
@@ -47,7 +46,7 @@ public class GameController
 		currentObjectRow = 0;
 		currentObjectY = objectStartY;
 		currentObject = new JLabel(objectModels.Cube);
-		currentObject.setFont(new Font("Serif", Font.PLAIN, 40));
+		currentObject.setFont(new Font("Serif", Font.PLAIN, 30));
 		currentObject.setBorder(null);
 		currentObject.setBounds(currentObjectX, objectStartY, 500, 100);
 		currentObject.setSize(10,200);
@@ -63,7 +62,7 @@ public class GameController
 		ActionListener objectsDropper = new ActionListener() {
 			
 	        public void actionPerformed(ActionEvent evt) {
-	        
+	        	
 	        	dropObjectOneRowDown();
 	        	keyPressEvent();
 	        	fieldUpdate();
@@ -72,18 +71,15 @@ public class GameController
 	        		createRandomObject();
 	        		printFieldOnConsole();
 	        	}
-	        	t.setDelay(1* 400 - objects.size()*2);
-	        	
 	        }
 	    };
-	    t = new javax.swing.Timer(1* 400, objectsDropper);
-	   
+	    javax.swing.Timer t = new javax.swing.Timer(1* 600, objectsDropper);
 	    t.start();
 		 
 	}
 	private static void dropObjectOneRowDown()
 	{
-		currentObjectY += 39;
+		currentObjectY += 30;
 		currentObject.setBounds(currentObjectX, currentObjectY, 500, 100);
 		currentObject.repaint();
         FrameBuilder.mainFrame.repaint();
