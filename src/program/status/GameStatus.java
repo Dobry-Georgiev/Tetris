@@ -4,8 +4,8 @@ public class GameStatus
 {
 	public static boolean gameStarted;
 	public static int[][] field = new int[20][10];
-	
-	
+	public static boolean musicStatus = false;
+
 	public static void generateField()
 	{
 		for(int i = 0; i< field.length; i++) 
@@ -36,4 +36,5 @@ public class GameStatus
 		
 		return false;
 	}
+
 }
