@@ -11,6 +11,7 @@ import java.util.LinkedList;
 import javax.swing.JLabel;
 
 import builders.FrameBuilder;
+import builders.GameOverFrame;
 import models.ObjectTypes;
 import models.objectModels;
 import program.status.GameStatus;
@@ -89,6 +90,11 @@ public class GameController
 	        	fieldUpdate();
 	        	if(currentObjectRow >= 19 || currentObjectHasCollided())
 	        	{
+	        		if (currentObjectRow == 1)
+	        	    {
+	        	    	t.stop();
+	        			GameOverFrame.gameOverFrameBuilder();
+	        		}
 	        		createRandomObject();
 	        		printFieldOnConsole();
 	        		scoreChange();
