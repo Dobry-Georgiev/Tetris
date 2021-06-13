@@ -1,4 +1,4 @@
-package program.status;
+package program.status;	
 
 public class GameStatus 
 {
@@ -16,5 +16,24 @@ public class GameStatus
 			}
 			
 		}
+	}
+	
+	public static boolean checkFullColumn() {
+		boolean temp = true;
+		for(int i = 0; i < 10;i++) {
+			for (int j = 0; j < 20;j++) {
+				if(field[j][i]==0) {
+					temp = false;
+				}
+			}
+			if(temp == true) {
+				return true;
+			}
+			else {
+				temp = true;
+			}
+		}
+		
+		return false;
 	}
 }
