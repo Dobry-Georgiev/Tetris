@@ -18,14 +18,4 @@ public class GameStatus
 		}
 	}
 	
-	public static boolean checkFullColumn() {
-		for(int i = 0; i < 10;i++)
-		{
-			if (field[2][i] == 1)
-			{
-				return true;
-			}
-		}
-		return false;
-	}
 }

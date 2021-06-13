@@ -38,10 +38,7 @@ public class GameController
 	}
 	private static void startDropping()
 	{
-		if(GameStatus.checkFullColumn()) {
-			gameOver();
-		}
-		
+
 		createRandomObject();
 
 		objectStartFalling();
@@ -290,8 +287,5 @@ public class GameController
 			}
 	 }
 	 
-	 private static void gameOver() {
-		 System.out.println("end");
-	 }
-	 
+
 	}
