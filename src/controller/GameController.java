@@ -27,6 +27,9 @@ public class GameController
 	static boolean hasMovedLeft = false;
 	static boolean hasMovedRight = false;
 	private static ObjectTypes objectType;
+	private static javax.swing.Timer t;
+	private static JLabel score = new JLabel("0");
+	private static JLabel name = new JLabel("nickname");
 	
 	public static void gameStart()
 	{
@@ -34,9 +37,14 @@ public class GameController
 	}
 	private static void startDropping()
 	{
+		if(GameStatus.checkFullColumn()) {
+			gameOver();
+		}
+		
 		createRandomObject();
 
 		objectStartFalling();
+		
 	}
 	private static void createRandomObject()
 	{
@@ -48,7 +56,22 @@ public class GameController
 		currentObject.setBorder(null);
 		currentObject.setBounds(currentObjectX, objectStartY, 500, 100);
 		currentObject.setSize(10,200);
+		
+		name.setBounds(20, 800, 100, 20);
+		name.setBorder(null);
+		
+		JLabel textScore = new JLabel("Score: ");
+		textScore.setBounds(20, 830, 50, 20);
+		textScore.setBorder(null);
+		
+		score.setBounds(70, 830, 30, 20);
+		score.setBorder(null);
+		
 		FrameBuilder.mainFrame.getContentPane().add(currentObject);
+		FrameBuilder.mainFrame.getContentPane().add(name);
+		FrameBuilder.mainFrame.getContentPane().add(textScore);
+		FrameBuilder.mainFrame.getContentPane().add(score);
+		
 		objects.add(currentObject);
 		objectSetRandomColor();
 		hasMovedLeft = false;
@@ -68,13 +91,23 @@ public class GameController
 	        	{
 	        		createRandomObject();
 	        		printFieldOnConsole();
+	        		scoreChange();
 	        	}
+	        	if(200 - objects.size()*2>=100)
+	        	t.setDelay(200 - objects.size()*2);
+	        	
 	        }
 	    };
-	    javax.swing.Timer t = new javax.swing.Timer(1* 200, objectsDropper);
+	    t	= new javax.swing.Timer(1* 200, objectsDropper);
 	    t.start();
 		 
 	}
+	
+	private static void scoreChange() {
+		int temp = Integer.parseInt(score.getText())+2;
+		score.setText(Integer.toString(temp));
+	}
+	
 	private static void dropObjectOneRowDown()
 	{
 		currentObjectY += 30;
@@ -250,4 +283,9 @@ public class GameController
 
 			}
 	 }
+	 
+	 private static void gameOver() {
+		 System.out.println("end");
+	 }
+	 
 	}
