@@ -19,9 +19,6 @@ public class GameBuilder
 		FrameBuilder.mainFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		FrameBuilder.mainFrame.setBounds(600, 0, 315, 1000);
 		FrameBuilder.mainFrame.getContentPane().setLayout(null);
-		JLabel testLabel = new JLabel("Game test");
-		testLabel.setBounds(125, 40, 100, 100);
-		FrameBuilder.mainFrame.getContentPane().add(testLabel);
 		GameController.gameStart();
 	}
 	
