@@ -192,10 +192,14 @@ public class GameController
              @Override
              public void keyPressed(KeyEvent e)
              {
-        		 	if(e.getKeyCode() == 37)
+        		 	if(e.getKeyCode() == 37 &&
+        		 			currentObjectColumn-1 >=0
+        		 			&& GameStatus.field[currentObjectRow][currentObjectColumn-1] == 0)
         		 		hasMovedLeft = true;
         		 	
-        		 	if(e.getKeyCode() == 39)
+        		 	if(e.getKeyCode() == 39  &&
+        		 			currentObjectColumn+1 <=9
+        		 			&& GameStatus.field[currentObjectRow][currentObjectColumn+1] == 0)
         		 		hasMovedRight = true;
              }
 
