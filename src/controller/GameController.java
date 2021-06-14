@@ -55,14 +55,14 @@ public class GameController
 		currentObject.setBounds(currentObjectX, objectStartY, 500, 100);
 		currentObject.setSize(10,200);
 		
-		name.setBounds(20, 800, 100, 20);
+		name.setBounds(20, 630, 100, 20);
 		name.setBorder(null);
 		
 		JLabel textScore = new JLabel("Score: ");
-		textScore.setBounds(20, 830, 50, 20);
+		textScore.setBounds(20, 680, 50, 20);
 		textScore.setBorder(null);
 		
-		score.setBounds(70, 830, 30, 20);
+		score.setBounds(70, 680, 30, 20);
 		score.setBorder(null);
 		
 		FrameBuilder.mainFrame.getContentPane().add(currentObject);
